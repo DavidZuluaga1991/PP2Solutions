@@ -1,0 +1,19 @@
+<div class="container_download">
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let cols of displayCols; let i=index" scope="col">{{cols.tittle}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data; let i=index">
+                <td *ngFor="let cols of displayCols; let i=index" [attr.data-label]="cols.tittle">
+                    <span *ngIf="!cols.tooltip">{{ item[cols.key] }}</span>
+                    <a href="{{item[cols.key]}}">
+                        <button *ngIf="cols.tooltip" mat-icon-button [attr.title]='item[cols.tooltip]'><mat-icon>archive</mat-icon></button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

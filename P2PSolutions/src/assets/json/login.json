@@ -1,0 +1,7 @@
+{
+    "user": {
+        "name": "Administrador",
+        "rol": "administrator"
+    },
+    "token": "token"
+}

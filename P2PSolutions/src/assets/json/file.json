@@ -1,0 +1,33 @@
+{
+    "data": [{
+            "companyId": 9408235322,
+            "partnerId": 7983038202,
+            "documentType": "ORDEN",
+            "documentId": 123012,
+            "country": "CO",
+            "fileNameInput": "ftp-amazon.s3.amazonaws.com/documentprueba.txt",
+            "fileNameOutput": "web-amazon.s3.amazonaws.com/documentprueba.txt",
+            "status": "PROCESADO",
+            "documentDate": "16-05-2020 18:35:01",
+            "documentDelivery": "17-05-2020 22:03:12",
+            "message": "",
+            "proceso": ["sqs.validate", "sqs.generate"],
+            "step": 1
+        },
+        {
+            "companyId": 9408235322,
+            "partnerId": 7983038202,
+            "documentType": "ORDEN",
+            "documentId": 123012,
+            "country": "CO",
+            "fileNameInput": "ftp-amazon.s3.amazonaws.com/documentprueba.txt",
+            "fileNameOutput": "web-amazon.s3.amazonaws.com/documentprueba.txt",
+            "status": "PROCESADO",
+            "documentDate": "16-05-2020 18:35:01",
+            "documentDelivery": "17-05-2020 22:03:12",
+            "message": "",
+            "proceso": ["sqs.validate", "sqs.generate"],
+            "step": 1
+        }
+    ]
+}

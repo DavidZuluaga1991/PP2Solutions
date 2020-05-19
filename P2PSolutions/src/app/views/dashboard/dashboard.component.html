@@ -1,0 +1,32 @@
+<div class="container_layout">
+    <div class="toolbar">
+        <button mat-icon-button (click)="sidenav = !sidenav">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div class="container_sidenav">
+        <div class="sidenav {{ sidenav ? '' : 'display_none'}}">
+            <ul>
+                <li class="{{ sidenav ? '' : 'display_none'}}" [routerLink]="['/dashboard/home']">
+                    <span class="icon"><mat-icon>home</mat-icon></span>
+                    <span class="text {{ sidenav ? '' : 'display_none'}}">Inicio</span>
+                </li>
+                <li class="{{ sidenav ? '' : 'display_none'}}" [routerLink]="['/dashboard/download']">
+                    <span class="icon"><mat-icon>cloud_download</mat-icon></span>
+                    <span class="text {{ sidenav ? '' : 'display_none'}}">Descargas</span>
+                </li>
+                <li class="{{ sidenav ? '' : 'display_none'}}" [routerLink]="['/dashboard/upload']">
+                    <span class="icon"><mat-icon>cloud_upload</mat-icon></span>
+                    <span class="text {{ sidenav ? '' : 'display_none'}}">Enviados</span>
+                </li>
+            </ul>
+            <!-- Documentos - Enviados - Recibidos Enviar Documentos Descargar Documentos -->
+        </div>
+        <div class="container_data">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <div class="footer">
+        P2P Solutions
+    </div>
+</div>

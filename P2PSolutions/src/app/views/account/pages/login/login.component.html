@@ -1,0 +1,21 @@
+<div class="container_login">
+    <div class="login">
+        <div class="colm1">
+            <h2>P2P Solutions</h2>
+        </div>
+        <div class="colm2">
+            <div class="user">
+                <img src="./../../../../../assets/img/user.png" alt="User Login">
+            </div>
+            <div class="container_login_form">
+                <form [formGroup]="formLogin" class="login_form">
+                    <input type="email" id="ipt-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" formControlName="email">
+                    <input type="password" id="ipt-password" formControlName="password">
+                    <div class="footer_login">
+                        <button id="btn--login" [disabled]="formLogin.invalid" (click)="login()">Ingresar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
