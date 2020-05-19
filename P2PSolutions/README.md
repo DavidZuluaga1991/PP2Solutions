@@ -2,8 +2,8 @@
 
 # Estructura frontend
 ## Login
-![](assets/design_proposal/login.png)
+![](src/assets/design_proposal/login.png)
 
 ## Layout and table
 
-![](assets/design_proposal/layout_table.png)
+![](src/assets/design_proposal/layout_table.png)
