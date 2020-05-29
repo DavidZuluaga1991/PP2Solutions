@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  endpoint: 'assets/json/'
+  endpointjson: 'assets/json/',
+  endpoint: 'https://ua2vx9xeub.execute-api.us-east-1.amazonaws.com/dev/api/v1/'
+  // estudiante-2020 - Camacho2020final
 };
 
 /*

@@ -1,0 +1,146 @@
+//-----------------------------------
+//Mixin
+//-----------------------------------
+// Vendor.
+@mixin vendor-prefix($property, $value, $prefixes: ()) {
+    @each $prefix in $prefixes {
+        #{"-" + $prefix + "-" + $property}: $value;
+    }
+    #{$property}: $value;
+}
+
+// Border Radius.
+@mixin border-radius($br) {
+    @include vendor-prefix(border-radius, $br, webkit moz ms o);
+}
+
+// Box Shadow.
+@mixin box-shadow($br: none) {
+    @include vendor-prefix(box-shadow, $br, webkit moz);
+}
+
+// Transform style.
+@mixin transform-style($br) {
+    @include vendor-prefix(transform-style, $br, webkit moz);
+}
+
+// Justify content.
+@mixin justify-content($br: flex-start) {
+    @include vendor-prefix(justify-content, $br, webkit);
+}
+
+// Justify self.
+@mixin justify-self($br: flex-start) {
+    @include vendor-prefix(justify-self, $br, webkit);
+}
+
+// Align items.
+@mixin align-items($br: stretch) {
+    @include vendor-prefix(align-items, $br, webkit);
+}
+
+// Flex direction.
+@mixin flex-direction($br: row) {
+    @include vendor-prefix(flex-direction, $br, webkit);
+}
+
+// Flex.
+@mixin flex {
+    @include vendor-prefix(display, flex, webkit moz ms);
+}
+
+// Transition
+@mixin transition($br) {
+    @include vendor-prefix(transition, $br, webkit moz o);
+}
+
+//Font
+@mixin font ( $size: 1em, $family: $f1, $weight: normal, $style: normal, $line-height: "none", $variant: normal) {
+    font: {
+        size: $size;
+        family: $family;
+        weight: $weight;
+        style: $style;
+        variant: $variant
+    }
+    @if $line-height !="none" {
+        line-height: $line-height;
+    }
+}
+
+// Background.
+@mixin backgrounds( $way, $repeat: no-repeat, $position: center, $color: transparent, $size: auto) {
+    background: {
+        image: url($way);
+        repeat: $repeat;
+        position: $position;
+        color: $color;
+        size: $size;
+    }
+}
+
+//Position
+@mixin position( $position: relative, $value_1: 0, $value_2: 0, $posit_1: top, $posit_2: left) {
+    position: $position;
+    #{$posit_1}: $value_1;
+    #{$posit_2}: $value_2;
+}
+
+//Width Height
+@mixin wh( $width: auto, $height: auto) {
+    width: $width;
+    height: $height;
+}
+
+//Width and height equal
+@mixin whs($value_aa: auto) {
+    width: $value_aa;
+    height: $value_aa;
+}
+
+//Horizontal and vertical centering with flex for column
+@mixin center-flex-column {
+    @include justify-content(center);
+    @include align-items(center);
+    @include flex-direction(column);
+    @include flex;
+}
+
+//Horizontal and vertical centering with flex for row
+@mixin center-flex-row {
+    @include justify-content(center);
+    @include align-items(center);
+    @include flex-direction;
+    @include flex;
+}
+
+//Calc
+@mixin calc($property, $expression) {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+//Rem
+@function szrem($value_px, $base: 16) {
+    @return ($value_px / $base)+rem;
+}
+
+//Placeholder
+@mixin placeholder {
+    &::-ms-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &::placeholder {
+        @content;
+    }
+}

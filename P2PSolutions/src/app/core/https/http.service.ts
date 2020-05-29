@@ -124,6 +124,25 @@ export class HttpService {
     });
   }
 
+
+  /**
+   * Se envia una peticion `PUT` a un servidor web y regresa los datos que son recuperados.
+   * @param valForm Este es el archivo para enviar al servidor.
+   * @param inUrl Este es el destino donde se enviara el archivo.
+   */
+  public fileUpload(valForm: FormData, inUrl: string) {
+    const options = {
+      reportProgress: true
+    };
+
+    const req = new HttpRequest('PUT', `${this.endpoint}${inUrl}`, valForm, options);
+    return this.httpC.request(req)
+    .pipe(
+      map((res: any) => res),
+      catchError((error: any) => throwError(error)) // then handle the error
+    );
+  }
+
   /**
    * Elimina los acentos de una cadena.
    * @param  value [description]

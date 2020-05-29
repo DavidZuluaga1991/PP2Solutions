@@ -7,31 +7,31 @@ export class LocalStorageService {
 
   constructor() { }
 
-  getItemString(key: string) {
+  public getItemString(key: string): string {
     return localStorage.getItem(key);
   }
 
-  stringifyItem(key: string, item: any) {
+  public stringifyItem(key: string, item: any): void {
     localStorage.setItem(key, JSON.stringify(item));
   }
 
-  parseItem<T>(key: string) {
+  public parseItem<T>(key: string) {
     return  JSON.parse(localStorage.getItem(key)) as T;
   }
 
-  setItem(key: string, item: any) {
+  public setItem(key: string, item: any): void {
      localStorage.setItem(key, item);
   }
 
-  getItemJSON(key: string) {
+  public getItemJSON(key: string) {
     return JSON.parse(localStorage.getItem(key));
   }
 
-  removeItem(key: string) {
+  public removeItem(key: string): void {
     localStorage.removeItem(key);
   }
 
-  clear() {
+  public clear(): void {
     localStorage.clear();
   }
 }

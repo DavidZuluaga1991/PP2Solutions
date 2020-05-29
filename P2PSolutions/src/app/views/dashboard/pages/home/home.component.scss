@@ -1,0 +1,42 @@
+@import "./../../../../../assets/sass/instances";
+.constainer_home {
+    height: 100%;
+    .header_home {
+        height: 56px;
+        font-size: xx-large;
+    }
+    .options_home {
+        height: 81%;
+        .content_option {
+            .option {
+                background-color: $c8;
+                margin-left: 15px;
+                margin-right: 15px;
+                border-radius: 46px;
+                @include whs(90px);
+                &:hover {
+                    background-color: $c9;
+                    @extend %box_shadow_1;
+                }
+                .icon {
+                    color: $c1;
+                }
+            }
+            .text {
+                margin-top: 10px;
+            }
+        }
+    }
+    .footer_home {
+        height: 66px;
+        display: grid;
+        grid-template: {
+            columns: auto auto auto;
+            areas: "colm1 colm2 colm3";
+        }
+    }
+}
+
+.flex {
+    @extend %flex_1;
+}

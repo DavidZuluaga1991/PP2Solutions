@@ -1,3 +1,4 @@
+@import "./../../../assets/sass/instances";
 .container_layout {
     display: grid;
     grid-template: {
@@ -5,49 +6,63 @@
     }
     grid-auto-rows: minmax(62px, auto);
     .toolbar {
-        background-color: #4682b4;
+        background-color: $c3;
         grid-column: 1;
         grid-row: 1;
-        display: flex;
-        align-items: center;
         padding-left: 10px;
         padding-right: 10px;
+        @include flex;
+        @include align-items(center);
         button {
-            color: #c4dcf0;
+            color: $c6;
+        }
+        .center_toolbar {
+            margin: 0 auto;
+        }
+        .perfil {
+            height: 38%;
+            display: grid;
+            grid-template-columns: 33px auto;
+            grid-template-rows: minmax(18px, auto);
+            color: $c1;
+            .text {
+                @extend %flex_1;
+            }
         }
     }
     .container_sidenav {
         grid-column: 1;
         grid-row: 2;
-        display: flex;
+        @include flex;
         height: 813px;
         .sidenav {
             border-right-width: 2px;
             border-style: solid;
-            border-color: #2978b8;
-            width: 126px;
-            transition: width 0.5s linear;
+            border-color: $c8;
+            @include wh(126px);
+            @include transition(width 0.5s linear);
             &.display_none {
                 width: 38px;
             }
             li {
-                display: flex;
+                @include flex;
                 height: 46px;
                 &:hover {
-                    background-color: #2978b8;
-                    color: #c4dcf0;
+                    background-color: $c8;
+                    color: $c6;
                 }
                 .icon {
-                    width: 51px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    @include wh(51px);
+                    @extend %flex_1;
                 }
                 .text {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 100%;
+                    @extend %flex_1;
+                    @include wh(100%);
+                    border-width: 0px;
+                    &:focus {
+                        border-width: 0px;
+                        border-style: none;
+                    }
                     &.display_none {
                         display: none;
                     }
@@ -55,20 +70,18 @@
             }
         }
         .container_data {
-            width: 100%;
+            @include wh(100%);
         }
-        @media (max-height: 757px) {
+        @include brph($b6) {
             height: 633px;
-            box-shadow: none;
+            @include box-shadow(none);
         }
     }
     .footer {
-        background-color: #4682b4;
-        color: #c4dcf0;
+        background-color: $c3;
+        color: $c6;
         grid-column: 1;
         grid-row: 3;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @extend %flex_1;
     }
 }

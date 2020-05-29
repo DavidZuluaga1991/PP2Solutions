@@ -1,1 +1,21 @@
-Hola desde home
+<div class="constainer_home">
+    <div class="header_home flex">
+        Bienvenidos al Sitio Web de P2P Solutions
+    </div>
+    <div class="options_home flex">
+        <div class="content_option" *ngFor="let option of initOptions">
+            <div class="option flex" [routerLink]="[option.route]" *ngIf="option.route">
+                <mat-icon class="icon">{{ option.icon }}</mat-icon>
+            </div>
+            <div class="option flex" *ngIf="!option.route">
+                <mat-icon class="icon">{{ option.icon }}</mat-icon>
+            </div>
+            <div class="text flex">{{ option.text }}</div>
+        </div>
+    </div>
+    <div class="footer_home">
+        <div class="flex colm1">Terminos y Condiciones</div>
+        <div class="flex colm2">Tratamiento de datos</div>
+        <div class="flex colm3">P2P Solitions</div>
+    </div>
+</div>

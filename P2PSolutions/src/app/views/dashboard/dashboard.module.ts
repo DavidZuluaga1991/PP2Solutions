@@ -9,20 +9,27 @@ import { DownloadComponent } from './pages/download/download.component';
 import { UploadComponent } from './pages/upload/upload.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from 'src/app/core/https/http.service';
+import { HomeComponent } from './pages/home/home.component';
+import { UploadFileComponent } from './pages/upload-file/upload-file.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     DownloadComponent,
-    UploadComponent
+    UploadComponent,
+    HomeComponent,
+    UploadFileComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     MatIconModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     HttpService

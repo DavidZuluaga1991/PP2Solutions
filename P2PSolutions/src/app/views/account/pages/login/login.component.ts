@@ -26,10 +26,12 @@ export class LoginComponent implements OnInit {
   }
 
   public login() {
-    this.api.get('login.json').then((result) => {
-      console.log(result);
+    const data = { user: this.formLogin.get('email').value, password: this.formLogin.get('password').value };
+    this.api.post('login', data).then((result: any) => {
       if (result.token) {
         this.localstorage.setItem('token', result.token);
+        this.localstorage.setItem('nit', result.user.nit);
+        this.localstorage.setItem('country', result.user.country);
         this.router.navigate(['/dashboard/home']);
       }
     });

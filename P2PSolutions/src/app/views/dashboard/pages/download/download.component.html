@@ -1,19 +1,36 @@
 <div class="container_download">
-    <table>
-        <thead>
-            <tr>
-                <th *ngFor="let cols of displayCols; let i=index" scope="col">{{cols.tittle}}</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of data; let i=index">
-                <td *ngFor="let cols of displayCols; let i=index" [attr.data-label]="cols.tittle">
-                    <span *ngIf="!cols.tooltip">{{ item[cols.key] }}</span>
-                    <a href="{{item[cols.key]}}">
-                        <button *ngIf="cols.tooltip" mat-icon-button [attr.title]='item[cols.tooltip]'><mat-icon>archive</mat-icon></button>
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table_filter">
+        <div class="tittle">Documentos Recibidos</div>
+        <form class="container_form" [formGroup]="formData">
+            <div class="autocomplete">
+                <div (click)="focusDataField('type', true)">
+                    <input type="text" name="type" formControlName="type" id="type" placeholder="Tipo Doc" autocomplete="off">
+                </div>
+                <div class="autocomplete_select" *ngIf="visibleData('type')">
+                    <div class="selection">
+                        <div class="options" *ngFor="let auto of typeDocs; let i = index" (click)="searchData(auto.name)">
+                            <span class="text">{{ auto.name }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th *ngFor="let cols of displayCols; let i=index" scope="col">{{cols.tittle}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data; let i=index">
+                    <td *ngFor="let cols of displayCols; let i=index" [attr.data-label]="cols.tittle">
+                        <span *ngIf="!cols.tooltip">{{ item[cols.key] }}</span>
+                        <a href="{{item[cols.key]}}">
+                            <button *ngIf="cols.tooltip" mat-icon-button [attr.title]='item[cols.tooltip]'><mat-icon>archive</mat-icon></button>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

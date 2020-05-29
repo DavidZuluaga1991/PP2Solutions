@@ -1,0 +1,48 @@
+<div class="container_file">
+    <form [formGroup]="formFile" class="container_form">
+        <div class="colm1">
+            <div class="data">Ingrese credenciales</div>
+            <div class="autocomplete country">
+                <input type="text" name="country" id="country" formControlName="country" placeholder="País" autocomplete="off" (focus)="focusDataField('country')" (keyup)="autocomplete('country')">
+                <div class="autocomplete_select {{ arraysData['country'].data ? 'active' : '' }}" *ngIf="visibleData('country')" (mouseleave)="focusDataField('country', false)">
+                    <div class="selection">
+                        <div class="options" *ngFor="let auto of arraysData['country'].data" (click)="setData('country', auto.name)">
+                            <span class="text">{{ auto.name }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input class="nit_emisor" type="number" name="nitEmisor" id="ipt--nit-emisor" placeholder="Nit emisor" formControlName="emisor" autocomplete="off">
+            <input class="nit_receptor" type="number" name="nitReceptor" id="ipt--nit-receptor" placeholder="Nit receptor" formControlName="receptor" autocomplete="off">
+            <div class="autocomplete type">
+                <div (click)="focusDataField('type', true)">
+                    <input type="text" name="type" id="type" formControlName="type" placeholder="Tipo Doc" autocomplete="off">
+                </div>
+                <div class="autocomplete_select {{ arraysData['type'].data ? 'active' : '' }}" *ngIf="visibleData('type')" (mouseleave)="focusDataField('type', false)">
+                    <div class="selection">
+                        <div class="options" *ngFor="let auto of arraysData['type'].data; let i = index" (click)="setData('type', auto.name)">
+                            <span class="text">{{ auto.name }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="number" class="identificador_unico" name="IdentificadorUnico" id="ipt--identificador-unico" placeholder="Identificador unico" formControlName="identification" autocomplete="off" (keyup)='disableFile()'>
+            <div class="form-group">
+                <label id="label" for="file"><mat-icon class="icon">attach_file</mat-icon>Seleccionar archivos</label>
+                <input type="file" id="file" formControlName="file" multiple (change)="upload($event.target.files)">
+            </div>
+        </div>
+        <div class="colm2">
+            <div class="file" *ngFor="let file of arraysFile">
+                <div class="file_load">
+                    <mat-icon class="icon">description</mat-icon>
+                    <div class="text">{{file.fileName}}</div>
+                </div>
+                <div class="exit">{{file.file.name}}</div>
+            </div>
+        </div>
+        <div class="colm3">
+            <button id="btn--file" [disabled]="formFile.invalid" (click)="sendFile()">Enviar</button>
+        </div>
+    </form>
+</div>

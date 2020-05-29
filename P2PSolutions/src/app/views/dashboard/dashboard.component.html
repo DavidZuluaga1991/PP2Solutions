@@ -3,24 +3,20 @@
         <button mat-icon-button (click)="sidenav = !sidenav">
             <mat-icon>menu</mat-icon>
         </button>
+        <div class="center_toolbar"></div>
+        <div class="perfil">
+            <mat-icon>person</mat-icon>
+            <div class="text">{{ namePerfil }}</div>
+        </div>
     </div>
     <div class="container_sidenav">
-        <div class="sidenav {{ sidenav ? '' : 'display_none'}}">
+        <div class="sidenav {{ sidenavMobile() }}">
             <ul>
-                <li class="{{ sidenav ? '' : 'display_none'}}" [routerLink]="['/dashboard/home']">
-                    <span class="icon"><mat-icon>home</mat-icon></span>
-                    <span class="text {{ sidenav ? '' : 'display_none'}}">Inicio</span>
-                </li>
-                <li class="{{ sidenav ? '' : 'display_none'}}" [routerLink]="['/dashboard/download']">
-                    <span class="icon"><mat-icon>cloud_download</mat-icon></span>
-                    <span class="text {{ sidenav ? '' : 'display_none'}}">Descargas</span>
-                </li>
-                <li class="{{ sidenav ? '' : 'display_none'}}" [routerLink]="['/dashboard/upload']">
-                    <span class="icon"><mat-icon>cloud_upload</mat-icon></span>
-                    <span class="text {{ sidenav ? '' : 'display_none'}}">Enviados</span>
+                <li mat-button *ngFor="let item of menu" [routerLink]="[item.route]">
+                    <span class="icon"><mat-icon>{{ item.icon }}</mat-icon></span>
+                    <span class="text {{ sidenavMobile()}}">{{ item.text }}</span>
                 </li>
             </ul>
-            <!-- Documentos - Enviados - Recibidos Enviar Documentos Descargar Documentos -->
         </div>
         <div class="container_data">
             <router-outlet></router-outlet>

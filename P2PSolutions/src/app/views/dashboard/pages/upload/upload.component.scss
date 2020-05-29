@@ -1,0 +1,118 @@
+@import "./../../../../../assets/sass/instances";
+.container_download {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    @extend %scroll_1;
+    &::-webkit-scrollbar-thumb {
+        background-color: $c8;
+    }
+    .table_filter {
+        display: grid;
+        width: 750px;
+        margin-top: 15px;
+        grid-template: {
+            columns: auto;
+            rows: minmax(14px, auto);
+        }
+        .tittle {
+            @extend %flex_1;
+            font-size: 30px;
+            // margin-bottom: 20px;
+        }
+        .container_form {
+            @extend %flex_1;
+            .autocomplete {
+                @extend %input_1;
+                @extend %autocomplete_1;
+            }
+        }
+        table {
+            border: 1px solid $c11;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 20px;
+            margin-top: 16px;
+            @include box-shadow(0px 0px 19px 2px rgba(0, 0, 0, 0.75));
+            tr {
+                background-color: $c11;
+                border: 1px solid $c11;
+                padding: .35em;
+                &:nth-child(even) {
+                    background-color: $c8;
+                    color: $c1;
+                }
+                &:nth-child(odd) {
+                    background-color: $c1;
+                }
+            }
+            th,
+            td {
+                padding: .625em;
+                text-align: center;
+            }
+            th {
+                font-size: .85em;
+                font-weight: bold;
+                text-transform: uppercase;
+                background-color: $c8;
+                color: $c1;
+            }
+            td {
+                a {
+                    text-decoration: none;
+                    color: $c2;
+                    &:hover {
+                        text-decoration: $c8;
+                    }
+                }
+            }
+        }
+    }
+    @include brp($b5) {
+        .table_filter {
+            width: 592px;
+        }
+    }
+    @include brp($b6) {
+        .table_filter {
+            width: 64%;
+            table {
+                border: 0;
+                thead {
+                    border: none;
+                    clip: rect(0 0 0 0);
+                    height: 1px;
+                    margin: -1px;
+                    overflow: hidden;
+                    padding: 0;
+                    position: absolute;
+                    width: 1px;
+                }
+                tr {
+                    border-bottom: 3px solid #ddd;
+                    display: block;
+                    &:nth-child(even) {
+                        background-color: #7898b3;
+                    }
+                }
+                td {
+                    border-bottom: 1px solid #ddd;
+                    display: block;
+                    font-size: .8em;
+                    text-align: right;
+                    &::before {
+                        content: attr(data-label);
+                        float: left;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                    }
+                    &:last-child {
+                        border-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
