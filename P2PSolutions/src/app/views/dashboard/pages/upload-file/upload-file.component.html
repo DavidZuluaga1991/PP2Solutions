@@ -13,7 +13,18 @@
                 </div>
             </div>
             <input class="nit_emisor" type="number" name="nitEmisor" id="ipt--nit-emisor" placeholder="Nit emisor" formControlName="emisor" autocomplete="off">
-            <input class="nit_receptor" type="number" name="nitReceptor" id="ipt--nit-receptor" placeholder="Nit receptor" formControlName="receptor" autocomplete="off">
+            <div class="autocomplete nit_receptor">
+                <div (click)="focusDataField('receptor', true)">
+                    <input class="nit_receptor" type="text" name="nitReceptor" id="ipt--nit-receptor" placeholder="Nit receptor" formControlName="receptor" autocomplete="off">
+                </div>
+                <div class="autocomplete_select {{ arraysData['receptor'].data ? 'active' : '' }}" *ngIf="visibleData('receptor')" >
+                    <div class="selection">
+                        <div class="options" *ngFor="let auto of arraysData['receptor'].data; let i = index" (click)="setData('receptor', auto.name)">
+                            <span class="text">{{ auto.name }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="autocomplete type">
                 <div (click)="focusDataField('type', true)">
                     <input type="text" name="type" id="type" formControlName="type" placeholder="Tipo Doc" autocomplete="off">

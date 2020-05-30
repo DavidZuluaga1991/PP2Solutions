@@ -78,7 +78,7 @@ export abstract class DataBasic {
               documentDate: this.viewDate(d.documentDate),
               documentDelivery: this.viewDate(d.documentDelivery),
               file: d.fileNameOutput.split('/')[d.fileNameOutput.split('/').length - 1],
-              urlfile: d.fileNameOutput,
+              urlfileo: this.actionData === 'ENVIADOS' ? d.fileNameOutput : d.fileNameInput,
               status: d.status
             }
           );

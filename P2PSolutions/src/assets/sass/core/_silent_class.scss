@@ -60,8 +60,9 @@
         position: absolute;
         margin-left: 15px;
         min-height: 0px;
-        max-height: 124px;
-        @include wh(226px);
+        max-height: 124px; 
+        min-width: 226px;
+        max-width: auto;
         @include border-radius(0 0 5px 5px);
         @extend %scroll_1;
         z-index: 999;
@@ -71,7 +72,7 @@
                 @extend %flex_1;
                 justify-content: flex-start;
                 .text {
-                    margin-left: 19px;
+                    margin-left: 8px;
                 }
                 &.active,
                 &:hover {
